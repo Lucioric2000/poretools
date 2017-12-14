@@ -13,43 +13,43 @@ import poretools.version
 
 def run_subtool(parser, args):
     if args.command == 'combine':
-        from . import combine as submodule
+        import combine as submodule
     elif args.command == 'events':
-        from . import events as submodule
+        import events as submodule
     elif args.command == 'fasta':
-        from . import fasta as submodule
+        import fasta as submodule
     elif args.command == 'fastq':
-        from . import fastq as submodule
+        import fastq as submodule
     elif args.command == 'hist':
-        from . import hist as submodule
+        import hist as submodule
     elif args.command == 'metadata':
-        from . import metadata as submodule
+        import metadata as submodule
     elif args.command == 'nucdist':
-        from . import nucdist as submodule
+        import nucdist as submodule
     elif args.command == 'occupancy':
-        from . import occupancy as submodule
+        import occupancy as submodule
     elif args.command == 'qualdist':
-        from . import qualdist as submodule
+        import qualdist as submodule
     elif args.command == 'qualpos':
-        from . import qual_v_pos as submodule
+        import qual_v_pos as submodule
     elif args.command == 'readstats':
-        from . import readstats as submodule
+        import readstats as submodule
     elif args.command == 'stats':
-        from . import stats as submodule
+        import stats as submodule
     elif args.command == 'tabular':
-        from . import tabular as submodule
+        import tabular as submodule
     elif args.command == 'times':
-        from . import times as submodule
+        import times as submodule
     elif args.command == 'squiggle':
-        from . import squiggle as submodule
+        import squiggle as submodule
     elif args.command == 'winner':
-        from . import winner as submodule
+        import winner as submodule
     elif args.command == 'yield_plot':
-        from . import yield_plot as submodule
+        import yield_plot as submodule
     elif args.command == 'index':
-        from . import index as submodule
+        import index as submodule
     elif args.command == 'organise':
-        from . import organise as submodule
+        import organise as submodule
 
     # run the chosen submodule.
     submodule.run(parser, args)
@@ -536,7 +536,7 @@ def main():
 
     try:
       args.func(parser, args)
-    except IOError as e:
+    except IOError, e:
          if e.errno != 32:  # ignore SIGPIPE
              raise
 

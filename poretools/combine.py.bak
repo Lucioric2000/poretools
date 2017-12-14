@@ -1,6 +1,6 @@
 import tarfile
 import sys
-from . import Fast5File
+import Fast5File
 
 #logging
 import logging

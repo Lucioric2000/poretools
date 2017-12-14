@@ -1,8 +1,8 @@
-from . import Fast5File
+import Fast5File
 import sys
 
 def run(parser, args):
-	
+
 	for fast5 in Fast5File.Fast5FileSet(args.files, args.group):
 
 		if args.start_time or args.end_time:
@@ -15,8 +15,8 @@ def run(parser, args):
 				fast5.close()
 				continue
 
-		fas = fast5.get_fastqs(args.type)
-
+		fas = fast5.get_fastas(args.type)
+		
 		# high quality 2D: means there are more nanopore events on the 
 		# complement strand than on the template strand. We also
 		# require there to be a 2D base-called sequence from Metrichor.
@@ -40,9 +40,9 @@ def run(parser, args):
 			len(fa.seq) < args.min_length or \
 			(len(fa.seq) > args.max_length and \
 			args.max_length > 0):			
-				continue
+				continue			
 
-			print(fa)
+			print fa
 
 		fast5.close()
 
